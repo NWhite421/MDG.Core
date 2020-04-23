@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeFile1.cs" />
+    <Compile Include="Options.cs" />
     <Compile Include="cs\Log.cs" />
     <Compile Include="cs\JobNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

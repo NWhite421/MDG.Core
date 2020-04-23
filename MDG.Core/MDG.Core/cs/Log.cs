@@ -1,11 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 
 namespace MDG.Core
 {
     public class Log
     {
+        internal static bool FirstLog = true;
+
         #region INTERNAL METHODS
         /// <summary>
         /// Gets the date tage for the log entry.
@@ -13,20 +16,52 @@ namespace MDG.Core
         /// <returns>[yyyy-mm-dd hh:mm:ssz] in 24 hr format.</returns>
         private static string GetDateTag()
         {
-            var date = DateTime.Now.ToString("u");
+            var date = DateTime.Now.ToString("G");
             return $"[{date}]";
+        }
+
+        private static void OutputAssemblyInfo()
+        {
+            string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string compileDate = File.GetCreationTime(Assembly.GetExecutingAssembly().Location).ToString("G");
+#if DEBUG
+            string config = "DEBUG";
+#else
+            string version = "RELEASE";
+#endif
+            Debug.WriteLine($"MDG Core loaded\n" +
+                $"============================================\n" +
+                $"Version: {version}\n" +
+                $"Config: {config}\n" +
+                $"Build date: {compileDate}\n" +
+                $"============================================");
         }
 
         private static void WriteToDebugLog(string Message, LogLevels Level)
         {
-            Debug.WriteLine($"{Level}{GetDateTag()}: {Message}");
+            if (FirstLog)
+            {
+                OutputAssemblyInfo();
+                FirstLog = false;
+            }
+            Debug.WriteLine($"[{Level}]{GetDateTag()}: {Message}");
         }
 
         private static void WriteToLog(string Message, LogLevels Level)
         {
 #if DEBUG
+            if (FirstLog)
+            {
+                OutputAssemblyInfo();
+                FirstLog = false;
+            }
             WriteToDebugLog(Message, Level);
 #else
+            if (FirstLog)
+            {
+                OutputAssemblyInfo();
+                FirstLog = false;
+            }
             WriteToDebugLog(Message, Level);
             //TODO: Add permanent logging for Log.WriteToLog function
 #endif
@@ -69,7 +104,7 @@ namespace MDG.Core
         {
             WriteToDebugLog(Message, LogLevels.Error);
         }
-        #endregion
+#endregion
     }
 
     /// <summary>
