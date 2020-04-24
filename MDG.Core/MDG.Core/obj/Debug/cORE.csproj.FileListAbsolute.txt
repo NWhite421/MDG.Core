@@ -3,3 +3,4 @@ E:\Source\MDG.Core\MDG.Core\MDG.Core\bin\Debug\MDG.Core.dll
 E:\Source\MDG.Core\MDG.Core\MDG.Core\bin\Debug\MDG.Core.pdb
 E:\Source\MDG.Core\MDG.Core\MDG.Core\obj\Debug\MDG.Core.dll
 E:\Source\MDG.Core\MDG.Core\MDG.Core\obj\Debug\MDG.Core.pdb
+E:\Source\MDG.Core\MDG.Core\MDG.Core\obj\Debug\Core.csprojAssemblyReference.cache

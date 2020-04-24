@@ -15,6 +15,7 @@ namespace testapp
             Log.AddInfo("Test log 2 to info.");
             JobNumber.TryParse("1901001");
             JobNumber.TryParse("1901002", out _, JobNumber.JobNumberFormats.LongHyphan);
+            Log.AddError("Someone dun fucked up.");
             Console.ReadKey();
         }
     }
