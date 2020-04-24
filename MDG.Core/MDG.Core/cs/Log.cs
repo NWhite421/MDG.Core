@@ -151,7 +151,7 @@ namespace MDG.Core
         {
 
         }
-
+        
         public CustomErrorException(string Message)
             : base($"Cusom error thrown: {Message}")
         {
