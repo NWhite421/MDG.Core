@@ -13,6 +13,8 @@ namespace testapp
         {
             Log.AddInfo("Test log to info.");
             Log.AddInfo("Test log 2 to info.");
+            JobNumber.TryParse("1901001");
+            JobNumber.TryParse("1901002", out _, JobNumber.JobNumberFormats.LongHyphan);
             Console.ReadKey();
         }
     }
