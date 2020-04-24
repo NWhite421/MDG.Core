@@ -70,7 +70,9 @@ Arguments
 (2) Format: Format to re-format number to.
 ```
 Return: Boolean (True if is a job number, False if not).
+
 Remarks:
+
 JobNumberFormats can be
 ```
 JobNumberFormats.ShortHyphan
