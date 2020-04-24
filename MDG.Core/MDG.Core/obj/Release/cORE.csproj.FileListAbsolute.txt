@@ -1,2 +1,0 @@
-E:\Source\MDG.Core\MDG.Core\MDG.Core\obj\Release\cORE.csprojAssemblyReference.cache
-E:\Source\MDG.Core\MDG.Core\MDG.Core\obj\Release\cORE.csproj.CoreCompileInputs.cache
