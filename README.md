@@ -20,7 +20,7 @@ TODO: Actually setup a valid method for install.
 ## Deployment
 
 ## Features
-- [Logging](LOGGING.md)
+- [Logging](Log.md)
 - [String Input Dialog](STRINGINPUT.md)
 
 ## Built With
