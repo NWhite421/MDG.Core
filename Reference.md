@@ -1,4 +1,17 @@
 # Reference Sheet
+[Return to Main Page](README.md)
+
+## Table of Contents
+- [Logging](#Logging)
+  - [ToDebug](#ToDebug)
+  - [AddInfo](#AddInfo)
+  - [AddWarning](#AddWarning)
+  - [AddError](#AddError)
+- [JobNumber](#JobNumber)
+    - [TryParse](#TryParse)
+        - [Method One](#Method-One)
+        - [Method Two](#Method-Two)
+
 The following is a quick reference sheet for the current release of the code.
 ## Logging
 ### ToDebug
