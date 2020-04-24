@@ -19,6 +19,10 @@ TODO: Actually setup a valid method for install.
 
 ## Deployment
 
+## Features
+- [Logging](LOGGING.md)
+- [String Input Dialog](STRINGINPUT.md)
+
 ## Built With
 
 * [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) - Base local framework
