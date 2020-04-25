@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>MDG.Core</id>
+    <version>0.2.0-alpha</version>
+    <title>MDG Core Functions</title>
+    <authors>NWhite421</authors>
+    <owners>NWhite421</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://nwhite421.github.io/MDG.Core/</projectUrl>
+    <description>The common functions used throughout other projects.</description>
+    <releaseNotes>Minor fixes. I haven't done logs yet, come at me.</releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>MDG Backend</tags>
+  </metadata>
+</package>
