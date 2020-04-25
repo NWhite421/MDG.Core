@@ -1,23 +1,33 @@
 # Melbourne Design Group
 For a reference cheat sheet, see [Reference Sheet](Reference.md)
 
-Melbourne Design Group - Core Functions (shortened to MDG.Core) is a group of common functions used throughout the Melbourne Design Group suite of applications. These functions range anywhere from application logging to job number parsing and other useful items that we may need.
+Melbourne Design Group - Core Functions (shortened to MDG.Core) is a group of common functions used throughout the Melbourne Design Group suite of applications. These functions range anywhere from application logging to job number parsing and other useful items that we may need. The scope of industry revolves around Land Survey applications, but theoretically can be used in other applications as well.
 
 ## Getting Started
 
-TODO: Actually setup a valid method for install.
-
 ### Prerequisites
+- [Visual Studio 2019 or later](https://visualstudio.microsoft.com/vs/)
+ - Basic understanding of nuget package management **OR**
+ - [Latest source code](https://github.com/NWhite421/MDG.Core/releases)
 
 ### Installing
 
-## Running the tests
+#### NuGet Package Manager
 
-### Break down into end to end tests
+Open the package manager under `Tools >> NuGet Package Manager >> Package Manager Console` and run the following code to download the latest version.
+```
+Install-Package MDG.Core -Version 0.2.0-alpha
+```
 
-### And coding style tests
+If you want to install other versions of the package, choose from the [NuGet Package Page](https://www.nuget.org/packages/MDG.Core/).
+
+#### Source Code
+
+Download the source code from this [link](https://github.com/NWhite421/MDG.Core/releases/tag/0.2.0-alpha) and add it to your project folder. In Visual Studio, right-click on your project, select `Add Existing Project` and select `MDG.Core\Core.csproj`. Build the project and add the project to your main project's reference list.
 
 ## Deployment
+
+This project will be built and deployed as a dependant for the master project.
 
 ## Features
 - [Logging](Log.md)
