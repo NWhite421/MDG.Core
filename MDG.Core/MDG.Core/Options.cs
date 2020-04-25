@@ -2,7 +2,7 @@
 {
     public class General
     {
-        public static readonly string ProjectName = "My Project";
+        public static string ProjectName = "My Project";
     }
 
     /// <summary>
@@ -15,6 +15,11 @@
         /// <summary>
         /// The base directory to search for GetPath method.
         /// </summary>
-        public static readonly string BaseDirectory = @"Z:\";
+        public static string BaseDirectory = @"Z:\";
+    }
+
+    public class Log
+    {
+        public static bool ForceDebug = true;
     }
 }
