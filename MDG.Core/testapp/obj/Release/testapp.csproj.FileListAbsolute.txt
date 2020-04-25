@@ -1,1 +1,0 @@
-E:\Source\MDG.Core\MDG.Core\testapp\obj\Release\testapp.csproj.CoreCompileInputs.cache

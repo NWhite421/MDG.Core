@@ -84,7 +84,18 @@ namespace MDG.Core
         /// <param name="Message">Message to show.</param>
         public static void AddInfo(string Message)
         {
+#if DEBUG
             WriteToDebugLog(Message, LogLevels.Info);
+#else
+            if (Options.Log.ForceDebug)
+            {
+                WriteToDebugLog(Message, LogLevels.Info);
+            }
+            else
+            {
+                WriteToLog(Message, LogLevels.Info);
+            }
+#endif
         }
 
         /// <summary>
@@ -93,7 +104,18 @@ namespace MDG.Core
         /// <param name="Message">Message to show.</param>
         public static void AddWarning(string Message)
         {
+#if DEBUG
             WriteToDebugLog(Message, LogLevels.Warning);
+#else
+            if (Options.Log.ForceDebug)
+            {
+                WriteToDebugLog(Message, LogLevels.Warning);
+            }
+            else
+            {
+                WriteToLog(Message, LogLevels.Warning);
+            }
+#endif
         }
 
         /// <summary>
@@ -102,9 +124,28 @@ namespace MDG.Core
         /// <param name="Message">Message to show.</param>
         public static void AddError(string Message)
         {
-            WriteToDebugLog(Message, LogLevels.Error);
+            var excep = new CustomErrorException(Message);
+            string output = "=============================================\n" +
+                $"!! A critical exception has occured !!\n" +
+                $"=============================================\n" +
+                $"Message: {Message}\n" +
+                $"Date: {DateTime.Now:G}\n" +
+                $"=============================================\n";
+#if DEBUG
+            Debug.WriteLine(output);
+            throw excep;
+#else
+            if (Options.Log.ForceDebug)
+            {
+                Debug.WriteLine(output);
+            }
+            else
+            {
+                WriteToLog(Message, LogLevels.Warning);
+            }
+#endif
         }
-#endregion
+        #endregion
     }
 
     /// <summary>
@@ -128,5 +169,22 @@ namespace MDG.Core
         /// Information thrown that is an issue and should stop the program.
         /// </summary>
         Error
+    }
+
+    /// <summary>
+    /// Custom error exception thrown in AddError method.
+    /// </summary>
+    class CustomErrorException: Exception
+    {
+        public CustomErrorException()
+        {
+
+        }
+        
+        public CustomErrorException(string Message)
+            : base($"Cusom error thrown: {Message}")
+        {
+
+        }
     }
 }

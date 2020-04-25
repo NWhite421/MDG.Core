@@ -55,5 +55,10 @@
       <DependentUpon>StringInput.cs</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dialog\StringInput.resx">
+      <DependentUpon>StringInput.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
