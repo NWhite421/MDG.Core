@@ -84,7 +84,18 @@ namespace MDG.Core
         /// <param name="Message">Message to show.</param>
         public static void AddInfo(string Message)
         {
+#if DEBUG
             WriteToDebugLog(Message, LogLevels.Info);
+#else
+            if (Options.Log.ForceDebug)
+            {
+                WriteToDebugLog(Message, LogLevels.Info);
+            }
+            else
+            {
+                WriteToLog(Message, LogLevels.Info);
+            }
+#endif
         }
 
         /// <summary>
@@ -93,7 +104,18 @@ namespace MDG.Core
         /// <param name="Message">Message to show.</param>
         public static void AddWarning(string Message)
         {
+#if DEBUG
             WriteToDebugLog(Message, LogLevels.Warning);
+#else
+            if (Options.Log.ForceDebug)
+            {
+                WriteToDebugLog(Message, LogLevels.Warning);
+            }
+            else
+            {
+                WriteToLog(Message, LogLevels.Warning);
+            }
+#endif
         }
 
         /// <summary>
@@ -113,7 +135,14 @@ namespace MDG.Core
             Debug.WriteLine(output);
             throw excep;
 #else
-
+            if (Options.Log.ForceDebug)
+            {
+                Debug.WriteLine(output);
+            }
+            else
+            {
+                WriteToLog(Message, LogLevels.Warning);
+            }
 #endif
         }
         #endregion

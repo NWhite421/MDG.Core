@@ -6,3 +6,10 @@ E:\Source\MDG.Core\MDG.Core\MDG.Core\obj\Debug\MDG.Core.pdb
 E:\Source\MDG.Core\MDG.Core\MDG.Core\obj\Debug\Core.csprojAssemblyReference.cache
 E:\Source\MDG.Core\MDG.Core\MDG.Core\obj\Debug\MDG.Core.StringInput.resources
 E:\Source\MDG.Core\MDG.Core\MDG.Core\obj\Debug\Core.csproj.GenerateResource.cache
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\bin\Debug\MDG.Core.dll
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\bin\Debug\MDG.Core.pdb
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Debug\Core.csprojAssemblyReference.cache
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Debug\MDG.Core.StringInput.resources
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Debug\Core.csproj.GenerateResource.cache
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Debug\MDG.Core.dll
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Debug\MDG.Core.pdb
