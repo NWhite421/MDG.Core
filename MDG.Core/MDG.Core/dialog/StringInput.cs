@@ -38,7 +38,7 @@ namespace MDG.Core
                 int cHeight = LblMessage.Height;
                 SizeF size = g.MeasureString(LblMessage.Text, LblMessage.Font, LblMessage.Width);
                 int nHeight = (int)Math.Ceiling(size.Height);
-                this.Height = this.Height + (nHeight - cHeight);
+                this.Height += (nHeight - cHeight);
             }
         }
 
@@ -60,7 +60,7 @@ namespace MDG.Core
                 int cHeight = LblMessage.Height;
                 SizeF size = g.MeasureString(LblMessage.Text, LblMessage.Font, LblMessage.Width);
                 int nHeight = (int)Math.Ceiling(size.Height);
-                this.Height = this.Height + (nHeight - cHeight);
+                this.Height += (nHeight - cHeight);
             }
         }
 
@@ -114,6 +114,23 @@ namespace MDG.Core
                 CnclButton(this, new EventArgs());
                 e.Handled = true;
                 e.SuppressKeyPress = true;
+            }
+        }
+
+        /// <summary>
+        /// Display the input window.
+        /// </summary>
+        /// <returns>True if success, false if failed.</returns>
+        public bool Display()
+        {
+            var result = this.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
