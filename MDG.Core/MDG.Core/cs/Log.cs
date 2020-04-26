@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -8,6 +9,8 @@ namespace MDG.Core
     public class Log
     {
         internal static bool FirstLog = true;
+
+        internal static string LogPath;
 
         #region INTERNAL METHODS
         /// <summary>
@@ -20,28 +23,64 @@ namespace MDG.Core
             return $"[{date}]";
         }
 
-        private static void OutputAssemblyInfo()
+        private static void OutputAssemblyInfo(int OutputMode)
         {
             string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             string compileDate = File.GetCreationTime(Assembly.GetExecutingAssembly().Location).ToString("G");
-#if DEBUG
-            string config = "DEBUG";
-#else
-            string version = "RELEASE";
-#endif
-            Debug.WriteLine($"MDG Core loaded\n" +
-                $"============================================\n" +
-                $"Version: {version}\n" +
-                $"Config: {config}\n" +
-                $"Build date: {compileDate}\n" +
-                $"============================================");
+            if (OutputMode == 0)
+            {
+                string config = "DEBUG";
+                Debug.WriteLine($"MDG Core loaded\n" +
+                    $"============================================\n" +
+                    $"Version: {version}\n" +
+                    $"Config: {config}\n" +
+                    $"Build date: {compileDate}\n" +
+                    $"============================================");
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(LogPath))
+                {
+                    Log.AddError("Log path could not be found.");
+                    return;
+                }
+                string config = "RELEASE";
+                string line = $"MDG Core loaded\n" +
+                    $"============================================\n" +
+                    $"Version: {version}\n" +
+                    $"Config: {config}\n" +
+                    $"Build date: {compileDate}\n" +
+                    $"============================================";
+                File.AppendAllLines(LogPath, new List<string> { line });
+            }
+        }
+
+        private static void EstablishLogFile()
+        {
+            string path = Paths.ReplaceVariables(Options.Log.StoragePath);
+            string baseDir = Directory.GetParent(path).FullName;
+            Log.ToDebug(path + "\n" + baseDir);
+
+            if (!Directory.Exists(baseDir))
+            {
+                Directory.CreateDirectory(baseDir);
+            }
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            string logFile = Path.Combine(path, Paths.ReplaceVariables("$ProjectName$ $DateFull$.log"));
+            var stream = File.Create(logFile);
+            stream.Close();
+            LogPath = logFile;
         }
 
         private static void WriteToDebugLog(string Message, LogLevels Level)
         {
             if (FirstLog)
             {
-                OutputAssemblyInfo();
+                OutputAssemblyInfo(0);
                 FirstLog = false;
             }
             Debug.WriteLine($"[{Level}]{GetDateTag()}: {Message}");
@@ -52,18 +91,35 @@ namespace MDG.Core
 #if DEBUG
             if (FirstLog)
             {
-                OutputAssemblyInfo();
+                OutputAssemblyInfo(0);
                 FirstLog = false;
             }
             WriteToDebugLog(Message, Level);
 #else
-            if (FirstLog)
+            if (Options.Log.EnableDebug)
             {
-                OutputAssemblyInfo();
-                FirstLog = false;
+                if (FirstLog)
+                {
+                    OutputAssemblyInfo(0);
+                    FirstLog = false;
+                }
+                WriteToDebugLog(Message, Level);
             }
-            WriteToDebugLog(Message, Level);
-            //TODO: Add permanent logging for Log.WriteToLog function
+            else
+            {
+                if (FirstLog)
+                {
+                    EstablishLogFile();
+                    OutputAssemblyInfo(1);
+                    FirstLog = false;   
+                }
+                if (string.IsNullOrEmpty(LogPath))
+                {
+                    Log.AddError("A log file could not be created.");
+                    return;
+                }
+                File.AppendAllLines(LogPath, new List<string> { $"[{Level}]{GetDateTag()}: {Message}" });
+            }
 #endif
         }
         #endregion
@@ -87,7 +143,7 @@ namespace MDG.Core
 #if DEBUG
             WriteToDebugLog(Message, LogLevels.Info);
 #else
-            if (Options.Log.ForceDebug)
+            if (Options.Log.EnableDebug)
             {
                 WriteToDebugLog(Message, LogLevels.Info);
             }
@@ -107,7 +163,7 @@ namespace MDG.Core
 #if DEBUG
             WriteToDebugLog(Message, LogLevels.Warning);
 #else
-            if (Options.Log.ForceDebug)
+            if (Options.Log.EnableDebug)
             {
                 WriteToDebugLog(Message, LogLevels.Warning);
             }
@@ -135,7 +191,7 @@ namespace MDG.Core
             Debug.WriteLine(output);
             throw excep;
 #else
-            if (Options.Log.ForceDebug)
+            if (Options.Log.EnableDebug)
             {
                 Debug.WriteLine(output);
             }

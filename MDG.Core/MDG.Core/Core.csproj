@@ -46,6 +46,7 @@
     <Compile Include="Options.cs" />
     <Compile Include="cs\Log.cs" />
     <Compile Include="cs\JobNumber.cs" />
+    <Compile Include="cs\Paths.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="cs\startup.cs" />
     <Compile Include="dialog\StringInput.cs">

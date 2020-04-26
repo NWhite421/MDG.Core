@@ -20,6 +20,14 @@
 
     public class Log
     {
-        public static bool ForceDebug = true;
+        /// <summary>
+        /// Force debug output when in <code>RELEASE</code> configuration.
+        /// </summary>
+        public static bool EnableDebug = true;
+
+        /// <summary>
+        /// The path to the log storage folder.
+        /// </summary>
+        public static string StoragePath = @"$LocalAppData$\$ProjectName$\Logs";
     }
 }

@@ -1,2 +1,9 @@
 E:\Source\MDG.Core\MDG.Core\MDG.Core\obj\Release\cORE.csprojAssemblyReference.cache
 E:\Source\MDG.Core\MDG.Core\MDG.Core\obj\Release\cORE.csproj.CoreCompileInputs.cache
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\bin\Release\MDG.Core.dll
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\bin\Release\MDG.Core.pdb
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Release\Core.csprojAssemblyReference.cache
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Release\MDG.Core.StringInput.resources
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Release\Core.csproj.GenerateResource.cache
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Release\MDG.Core.dll
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Release\MDG.Core.pdb
