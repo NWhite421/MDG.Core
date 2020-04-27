@@ -25,6 +25,10 @@ If you want to install other versions of the package, choose from the [NuGet Pac
 
 Download the source code from this [link](https://github.com/NWhite421/MDG.Core/releases/tag/0.2.0-alpha) and add it to your project folder. In Visual Studio, right-click on your project, select `Add Existing Project` and select `MDG.Core\Core.csproj`. Build the project and add the project to your main project's reference list.
 
+## Setup
+
+See [Project Setup](ProjectSetup.md) for information regarding setup.
+
 ## Deployment
 
 This project will be built and deployed as a dependant for the master project.
@@ -39,7 +43,7 @@ This project will be built and deployed as a dependant for the master project.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
