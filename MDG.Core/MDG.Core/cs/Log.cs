@@ -9,8 +9,9 @@ namespace MDG.Core
     public class Log
     {
         internal static bool FirstLog = true;
-
         internal static string LogPath;
+
+        internal static DebugLog DebugWindow;
 
         #region INTERNAL METHODS
         /// <summary>
@@ -37,7 +38,7 @@ namespace MDG.Core
                     $"Build date: {compileDate}\n" +
                     $"============================================");
             }
-            else
+            else if (OutputMode == 1)
             {
                 if (string.IsNullOrEmpty(LogPath))
                 {
@@ -52,6 +53,24 @@ namespace MDG.Core
                     $"Build date: {compileDate}\n" +
                     $"============================================";
                 File.AppendAllLines(LogPath, new List<string> { line });
+            }
+            else if (OutputMode == 2)
+            {
+                if (string.IsNullOrEmpty(LogPath))
+                {
+                    Log.AddError("Log path could not be found.");
+                    return;
+                }
+                string config = "RELEASE [Forced Debug]";
+                string line = $"MDG Core loaded\n" +
+                    $"============================================\n" +
+                    $"Version: {version}\n" +
+                    $"Config: {config}\n" +
+                    $"Build date: {compileDate}\n" +
+                    $"============================================";
+                DebugWindow = new DebugLog();
+                DebugWindow.Show();
+                DebugWindow.AddToLog(line);
             }
         }
 
@@ -96,14 +115,14 @@ namespace MDG.Core
             }
             WriteToDebugLog(Message, Level);
 #else
-            if (Options.Log.EnableDebug)
+            if (Options.Log.EnableDebug || Options.Log.DisableLog)
             {
                 if (FirstLog)
                 {
-                    OutputAssemblyInfo(0);
+                    OutputAssemblyInfo(2);
                     FirstLog = false;
                 }
-                WriteToDebugLog(Message, Level);
+                DebugWindow.AddToLog($"[{Level}]{GetDateTag()}: {Message}");
             }
             else
             {

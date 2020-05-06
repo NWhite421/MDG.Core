@@ -3,6 +3,13 @@
     public class General
     {
         public static string ProjectName = "My Project";
+
+        public class UserInformation
+        {
+            public static string UserName = "";
+
+            public static AccessLevel AccessLevel = AccessLevel.User;
+        }
     }
 
     /// <summary>
@@ -18,12 +25,22 @@
         public static string BaseDirectory = @"Z:\";
     }
 
+    public enum AccessLevel
+    {
+        User,
+        Manager,
+        Administrator,
+        Owner
+    }
+
     public class Log
     {
         /// <summary>
         /// Force debug output when in <code>RELEASE</code> configuration.
         /// </summary>
         public static bool EnableDebug = true;
+
+        public static bool DisableLog = false;
 
         /// <summary>
         /// The path to the log storage folder.
