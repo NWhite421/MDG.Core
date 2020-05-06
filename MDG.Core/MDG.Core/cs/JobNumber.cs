@@ -6,6 +6,15 @@ using System.Windows.Forms;
 
 namespace MDG.Core
 {
+
+    public enum JobNumberFormats
+    {
+        ShortNoHyphan,
+        ShortHyphan,
+        LongNoHyphan,
+        LongHyphan
+    }
+
     public class JobNumber
     {
         #region CONSTANTS
@@ -58,14 +67,6 @@ namespace MDG.Core
                     return @"^\d{4}-\d{2}-\d{3}";
                 }
             }
-        }
-
-        public enum JobNumberFormats
-        {
-            ShortNoHyphan,
-            ShortHyphan,
-            LongNoHyphan,
-            LongHyphan
         }
         #endregion
 
@@ -179,6 +180,24 @@ namespace MDG.Core
             }
 
             return dir;
+        }
+
+        /// <summary>
+        /// Parse number to another format.
+        /// </summary>
+        /// <param name="Input">Source job number.</param>
+        /// <param name="Format">New format.</param>
+        /// <returns>Reformatted job number.</returns>
+        public static string Parse(string Input, JobNumberFormats Format)
+        {
+            if (TryParse(Input, out string reformatted, Format))
+            {
+                return reformatted;
+            }
+            else
+            {
+                return "";
+            }
         }
     }
 }

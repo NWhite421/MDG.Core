@@ -7,3 +7,5 @@ C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Relea
 C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Release\Core.csproj.GenerateResource.cache
 C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Release\MDG.Core.dll
 C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Release\MDG.Core.pdb
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Release\MDG.Core.DebugLog.resources
+C:\Users\Nathan White\Documents\Source Code\MDG.Core\MDG.Core\MDG.Core\obj\Release\Core.csproj.CoreCompileInputs.cache

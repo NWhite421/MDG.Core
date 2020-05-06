@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dialog\DebugLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dialog\DebugLog.Designer.cs">
+      <DependentUpon>DebugLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options.cs" />
     <Compile Include="cs\Log.cs" />
     <Compile Include="cs\JobNumber.cs" />
@@ -57,6 +63,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="dialog\DebugLog.resx">
+      <DependentUpon>DebugLog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dialog\StringInput.resx">
       <DependentUpon>StringInput.cs</DependentUpon>
     </EmbeddedResource>
