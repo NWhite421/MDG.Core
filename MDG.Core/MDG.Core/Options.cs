@@ -4,6 +4,8 @@
     {
         public static string ProjectName = "My Project";
 
+        public static string Company = "My Company";
+
         public class UserInformation
         {
             public static string UserName = "";
